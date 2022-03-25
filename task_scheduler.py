@@ -48,6 +48,11 @@ class Scheduler(threading.Thread):
     def peek_queue(self):
         return self.taskQ.queue[0]
 
+		# entry point of thread
+		def run(self):
+				pass
+
+
 # main
 def task_func(id):
     print("func ", id)
@@ -66,6 +71,7 @@ def exe():
         print("running task", task.id)
 
 s = Scheduler(10)
+s.start()
 for task in tasks:
     print("adding task", task.id)
     s.add_task(task, 2)
